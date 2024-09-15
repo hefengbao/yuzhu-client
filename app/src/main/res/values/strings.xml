@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">玉竹</string>
+    <string name="feature_settings_loading">Loading…</string>
+    <string name="feature_settings_theme">主题</string>
+    <string name="feature_settings_brand_default">默认</string>
+    <string name="feature_settings_brand_android">Android</string>
+    <string name="feature_settings_dark_mode_preference">深色模式</string>
+    <string name="feature_settings_dark_mode_config_system_default">跟随系统</string>
+    <string name="feature_settings_dark_mode_config_light">浅色</string>
+    <string name="feature_settings_dark_mode_config_dark">深色</string>
+    <string name="feature_settings_dynamic_color_preference">使用动态颜色</string>
+    <string name="feature_settings_dynamic_color_yes">是</string>
+    <string name="feature_settings_dynamic_color_no">否</string>
+    <string name="feature_settings_dismiss_dialog_button_text">确认</string>
+    <string name="formatting_human_time_diff_just_now">刚刚</string>
+    <string name="formatting_human_time_diff_mins_ago">%1$s 分钟前</string>
+    <string name="formatting_human_time_diff_hours_ago">%1$s 小时前</string>
+    <string name="formatting_human_time_diff_md">M月dd日</string>
+    <string name="formatting_human_time_diff_ymd">yyyy年MM月dd日</string>
+    <string name="tweet">微博</string>
+    <string name="article">博客</string>
+    <string name="me">我的</string>
+    <string name="not_connected">⚠️ 您未连接到 internet</string>
+    <string name="open_link_something_wrong">“打开链接”设置被忽略，因为出现了错误。</string>
+    <string name="touch_to_play_video">轻触播放视频</string>
+    <string name="more">更多</string>
+    <string name="save">保存</string>
+    <string name="image_saved">图片已保存</string>
+    <string name="close">关闭</string>
+    <string name="permission_denied">权限被拒绝</string>
+</resources>
