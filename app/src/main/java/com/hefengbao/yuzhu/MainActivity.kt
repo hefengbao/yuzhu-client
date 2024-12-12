@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Domain
@@ -234,7 +233,7 @@ private fun LoginScreen(
         mutableStateOf("")
     }
 
-    var passwordHidden by rememberSaveable{ mutableStateOf(true)}
+    var passwordHidden by rememberSaveable { mutableStateOf(true) }
 
     Scaffold(
         topBar = {
@@ -280,7 +279,7 @@ private fun LoginScreen(
                         Icon(imageVector = Icons.Default.Key, contentDescription = "")
                     },
                     trailingIcon = {
-                        if (password.isNotBlank()){
+                        if (password.isNotBlank()) {
                             IconButton(onClick = { passwordHidden = !passwordHidden }) {
                                 Icon(
                                     imageVector = if (passwordHidden) Icons.Outlined.Visibility else Icons.Outlined.VisibilityOff,

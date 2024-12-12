@@ -3,10 +3,10 @@ package com.hefengbao.yuzhu
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hefengbao.yuzhu.common.network.Result
-import com.hefengbao.yuzhu.data.model.AuthToken
-import com.hefengbao.yuzhu.data.model.UserData
-import com.hefengbao.yuzhu.data.repository.AuthRepository
-import com.hefengbao.yuzhu.data.repository.UserDataRepository
+import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.user.UserData
+import com.hefengbao.yuzhu.data.repository.auth.AuthRepository
+import com.hefengbao.yuzhu.data.repository.user.UserDataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

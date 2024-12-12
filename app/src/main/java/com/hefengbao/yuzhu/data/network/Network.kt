@@ -1,11 +1,11 @@
 package com.hefengbao.yuzhu.data.network
 
-import com.hefengbao.yuzhu.data.model.AuthToken
-import com.hefengbao.yuzhu.data.model.Category
-import com.hefengbao.yuzhu.data.model.Comment
-import com.hefengbao.yuzhu.data.model.Post
-import com.hefengbao.yuzhu.data.model.Tag
-import com.hefengbao.yuzhu.data.model.User
+import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.post.Category
+import com.hefengbao.yuzhu.data.model.post.Comment
+import com.hefengbao.yuzhu.data.model.post.Post
+import com.hefengbao.yuzhu.data.model.post.Tag
+import com.hefengbao.yuzhu.data.model.user.User
 import retrofit2.Response
 
 interface Network {

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hefengbao.yuzhu.data.model.theme.DarkThemeConfig
 import com.hefengbao.yuzhu.data.model.theme.ThemeBrand
-import com.hefengbao.yuzhu.data.repository.SettingsRepository
+import com.hefengbao.yuzhu.data.repository.settings.SettingsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
 import kotlinx.coroutines.flow.StateFlow

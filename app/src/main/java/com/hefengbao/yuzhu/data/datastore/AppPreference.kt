@@ -9,11 +9,11 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.hefengbao.yuzhu.common.Constant
-import com.hefengbao.yuzhu.data.model.AuthToken
-import com.hefengbao.yuzhu.data.model.User
-import com.hefengbao.yuzhu.data.model.UserData
+import com.hefengbao.yuzhu.data.model.auth.AuthToken
 import com.hefengbao.yuzhu.data.model.theme.DarkThemeConfig
 import com.hefengbao.yuzhu.data.model.theme.ThemeBrand
+import com.hefengbao.yuzhu.data.model.user.User
+import com.hefengbao.yuzhu.data.model.user.UserData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

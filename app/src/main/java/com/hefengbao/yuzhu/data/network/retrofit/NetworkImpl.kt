@@ -1,12 +1,12 @@
 package com.hefengbao.yuzhu.data.network.retrofit
 
 import com.hefengbao.yuzhu.data.datastore.AppPreference
-import com.hefengbao.yuzhu.data.model.AuthToken
-import com.hefengbao.yuzhu.data.model.Category
-import com.hefengbao.yuzhu.data.model.Comment
-import com.hefengbao.yuzhu.data.model.Post
-import com.hefengbao.yuzhu.data.model.Tag
-import com.hefengbao.yuzhu.data.model.User
+import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.post.Category
+import com.hefengbao.yuzhu.data.model.post.Comment
+import com.hefengbao.yuzhu.data.model.post.Post
+import com.hefengbao.yuzhu.data.model.post.Tag
+import com.hefengbao.yuzhu.data.model.user.User
 import com.hefengbao.yuzhu.data.network.Network
 import com.hefengbao.yuzhu.di.ApplicationScope
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -138,13 +138,14 @@ class NetworkImpl @Inject constructor(
     ): Post = networkApi.createPage(authorization, title, slug, body, commentable)
 
     override suspend fun getCategories(authorization: String?): List<Category> =
-        networkApi.categories(authorization)
+        networkApi.postCategories(authorization)
 
     override suspend fun createCategory(authorization: String?, name: String): Category =
-        networkApi.createCategory(authorization, name)
+        networkApi.createPostCategory(authorization, name)
 
-    override suspend fun getTags(authorization: String?): List<Tag> = networkApi.tags(authorization)
+    override suspend fun getTags(authorization: String?): List<Tag> =
+        networkApi.postTags(authorization)
 
     override suspend fun createTag(authorization: String?, name: String): Tag =
-        networkApi.createTag(authorization, name)
+        networkApi.createPostTag(authorization, name)
 }

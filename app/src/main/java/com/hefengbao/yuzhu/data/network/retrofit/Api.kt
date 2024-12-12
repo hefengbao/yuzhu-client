@@ -1,10 +1,7 @@
 package com.hefengbao.yuzhu.data.network.retrofit
 
-import com.hefengbao.yuzhu.data.model.AuthToken
-import com.hefengbao.yuzhu.data.model.Category
-import com.hefengbao.yuzhu.data.model.Comment
-import com.hefengbao.yuzhu.data.model.Tag
-import com.hefengbao.yuzhu.data.model.User
+import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.user.User
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -13,7 +10,10 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
-import com.hefengbao.yuzhu.data.model.Post as NetworkPost
+import com.hefengbao.yuzhu.data.model.post.Category as PostCategory
+import com.hefengbao.yuzhu.data.model.post.Comment as PostComment
+import com.hefengbao.yuzhu.data.model.post.Post as NetworkPost
+import com.hefengbao.yuzhu.data.model.post.Tag as PostTag
 
 interface Api {
 
@@ -63,7 +63,7 @@ interface Api {
         @Path("articleId") articleId: Int,
         @Query("page_size") pageSize: Int,
         @Query("key") key: Int? = null,
-    ): List<Comment>
+    ): List<PostComment>
 
     @FormUrlEncoded
     @POST("articles/{articleId}/comments")
@@ -72,7 +72,7 @@ interface Api {
         @Path("articleId") articleId: Int,
         @Field("body") body: String,
         @Field("parent_id") parentId: Int? = null
-    ): Comment
+    ): PostComment
 
 
     @GET("tweets")
@@ -97,7 +97,7 @@ interface Api {
         @Path("tweedId") tweedId: Int,
         @Query("page_size") pageSize: Int,
         @Query("key") key: Int? = null,
-    ): List<Comment>
+    ): List<PostComment>
 
     @FormUrlEncoded
     @POST("tweets/{tweedId}/comments")
@@ -106,7 +106,7 @@ interface Api {
         @Path("tweedId") tweedId: Int,
         @Field("body") body: String,
         @Field("parent_id") parentId: Int? = null
-    ): Comment
+    ): PostComment
 
     @GET("pages")
     suspend fun pages(
@@ -126,26 +126,26 @@ interface Api {
     ): NetworkPost
 
     @GET("categories")
-    suspend fun categories(
+    suspend fun postCategories(
         @Header("Authorization") authorization: String?,
-    ): List<Category>
+    ): List<PostCategory>
 
     @FormUrlEncoded
     @POST("categories")
-    suspend fun createCategory(
+    suspend fun createPostCategory(
         @Header("Authorization") authorization: String?,
         @Field("name") name: String,
-    ): Category
+    ): PostCategory
 
     @GET("tags")
-    suspend fun tags(
+    suspend fun postTags(
         @Header("Authorization") authorization: String?,
-    ): List<Tag>
+    ): List<PostTag>
 
     @FormUrlEncoded
     @POST("tags")
-    suspend fun createTag(
+    suspend fun createPostTag(
         @Header("Authorization") authorization: String?,
         @Field("name") name: String,
-    ): Tag
+    ): PostTag
 }

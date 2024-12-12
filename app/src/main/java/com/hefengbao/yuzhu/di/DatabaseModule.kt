@@ -4,11 +4,11 @@ import android.content.Context
 import androidx.room.Room.databaseBuilder
 import com.hefengbao.yuzhu.common.Constant
 import com.hefengbao.yuzhu.data.database.AppDatabase
-import com.hefengbao.yuzhu.data.database.dao.CategoryDao
-import com.hefengbao.yuzhu.data.database.dao.CommentDao
-import com.hefengbao.yuzhu.data.database.dao.PostDao
-import com.hefengbao.yuzhu.data.database.dao.TagDao
-import com.hefengbao.yuzhu.data.database.dao.UserDao
+import com.hefengbao.yuzhu.data.database.dao.post.CategoryDao
+import com.hefengbao.yuzhu.data.database.dao.post.CommentDao
+import com.hefengbao.yuzhu.data.database.dao.post.PostDao
+import com.hefengbao.yuzhu.data.database.dao.post.TagDao
+import com.hefengbao.yuzhu.data.database.dao.user.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,13 +33,13 @@ object DatabaseModule {
     @Singleton
     fun providesCommentDao(
         database: AppDatabase
-    ): CommentDao = database.commentDao()
+    ): CommentDao = database.postCommentDao()
 
     @Provides
     @Singleton
-    fun providesCategoryDao(
+    fun providesPostCategoryDao(
         database: AppDatabase
-    ): CategoryDao = database.categoryDao()
+    ): CategoryDao = database.postCategoryDao()
 
     @Provides
     @Singleton
@@ -51,7 +51,7 @@ object DatabaseModule {
     @Singleton
     fun providesTagDao(
         database: AppDatabase
-    ): TagDao = database.tagDao()
+    ): TagDao = database.postTagDao()
 
     @Provides
     @Singleton

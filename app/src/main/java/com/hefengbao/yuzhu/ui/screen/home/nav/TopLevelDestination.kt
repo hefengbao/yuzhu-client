@@ -9,9 +9,9 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.hefengbao.yuzhu.R
-import com.hefengbao.yuzhu.ui.screen.article.nav.ARTICLE_INDEX_ROUTE
-import com.hefengbao.yuzhu.ui.screen.me.nav.ME_ROUTE
-import com.hefengbao.yuzhu.ui.screen.tweet.nav.TWEET_INDEX_ROUTE
+import com.hefengbao.yuzhu.ui.screen.post.article.nav.ARTICLE_INDEX_ROUTE
+import com.hefengbao.yuzhu.ui.screen.post.tweet.nav.TWEET_INDEX_ROUTE
+import com.hefengbao.yuzhu.ui.screen.user.me.nav.ME_ROUTE
 
 
 enum class TopLevelDestination(
