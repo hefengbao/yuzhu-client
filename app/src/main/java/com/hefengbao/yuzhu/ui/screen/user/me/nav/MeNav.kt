@@ -15,6 +15,7 @@ fun NavController.navigateToMeGraph(navOptions: NavOptions? = null) {
 }
 
 fun NavGraphBuilder.meGraph(
+    onFinanceClick: () -> Unit,
     onSettingsClick: () -> Unit,
     nestedGraphs: NavGraphBuilder.() -> Unit
 ) {
@@ -24,6 +25,7 @@ fun NavGraphBuilder.meGraph(
     ) {
         composable(ME_ROUTE) {
             MeRoute(
+                onFinanceClick = onFinanceClick,
                 onSettingsClick = onSettingsClick
             )
         }

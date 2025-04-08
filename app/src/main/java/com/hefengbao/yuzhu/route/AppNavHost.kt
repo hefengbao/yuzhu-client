@@ -1,9 +1,16 @@
 package com.hefengbao.yuzhu.route
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.hefengbao.yuzhu.ui.screen.finance.account.nav.financeAccountIndexScreen
+import com.hefengbao.yuzhu.ui.screen.finance.account.nav.navigateToFinanceAccountIndexScreen
+import com.hefengbao.yuzhu.ui.screen.finance.category.nav.financeCategoryIndexScreen
+import com.hefengbao.yuzhu.ui.screen.finance.category.nav.navigateToFinanceCategoryIndexScreen
+import com.hefengbao.yuzhu.ui.screen.finance.transaction.nav.financeGraph
+import com.hefengbao.yuzhu.ui.screen.finance.transaction.nav.financeTransactionCreateScreen
+import com.hefengbao.yuzhu.ui.screen.finance.transaction.nav.navigateToFinanceGraph
+import com.hefengbao.yuzhu.ui.screen.finance.transaction.nav.navigateToFinanceTransactionCreateScreen
 import com.hefengbao.yuzhu.ui.screen.post.article.nav.articleGraph
 import com.hefengbao.yuzhu.ui.screen.post.article.nav.articleShowScreen
 import com.hefengbao.yuzhu.ui.screen.post.article.nav.navigateToArticleShowScreen
@@ -41,7 +48,39 @@ fun AppNavHost(
                 )
             }
         )
+        financeGraph(
+            onBackClick = navController::navigateUp,
+            onCreateClick = navController::navigateToFinanceTransactionCreateScreen,
+            onStatClick = {}
+        ){
+            financeAccountIndexScreen(
+                onBackClick = navController::navigateUp,
+                onAccountSelect = {
+                    navController.previousBackStackEntry
+                        ?.savedStateHandle
+                        ?.set("account", it)
+                    navController.popBackStack()
+                }
+            )
+
+            financeCategoryIndexScreen(
+                onBackClick = navController::navigateUp,
+                onCategorySelect = {
+                    navController.previousBackStackEntry
+                        ?.savedStateHandle
+                        ?.set("category", it)
+                    navController.popBackStack()
+                }
+            )
+
+            financeTransactionCreateScreen(
+                onBackClick = navController::navigateUp,
+                onSelectAccountClick = navController::navigateToFinanceAccountIndexScreen,
+                onSelectCategoryClick = navController::navigateToFinanceCategoryIndexScreen
+            )
+        }
         meGraph(
+            onFinanceClick = navController::navigateToFinanceGraph,
             onSettingsClick = { navController.navigateToSettingsGraph() },
             nestedGraphs = {
 
@@ -67,7 +106,6 @@ fun AppNavHost(
                 navController.previousBackStackEntry
                     ?.savedStateHandle
                     ?.set("tag", it)
-                Log.i("AppNavHost", "$it")
                 navController.popBackStack()
             },
             nestedGraphs = {

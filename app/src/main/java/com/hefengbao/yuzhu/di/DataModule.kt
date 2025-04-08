@@ -4,6 +4,14 @@ import com.hefengbao.yuzhu.common.util.ConnectivityManagerNetworkMonitor
 import com.hefengbao.yuzhu.common.util.NetworkMonitor
 import com.hefengbao.yuzhu.data.repository.auth.AuthRepository
 import com.hefengbao.yuzhu.data.repository.auth.AuthRepositoryImpl
+import com.hefengbao.yuzhu.data.repository.finance.AccountRepository as FinanceAccountRepository
+import com.hefengbao.yuzhu.data.repository.finance.AccountRepositoryImpl as FinanceAccountRepositoryImpl
+import com.hefengbao.yuzhu.data.repository.finance.CategoryRepository as FinanceCategoryRepository
+import com.hefengbao.yuzhu.data.repository.finance.CategoryRepositoryImpl as FinanceCategoryRepositoryImpl
+import com.hefengbao.yuzhu.data.repository.finance.GroupRepository as FinanceGroupRepository
+import com.hefengbao.yuzhu.data.repository.finance.GroupRepositoryImpl as FinanceGroupRepositoryImpl
+import com.hefengbao.yuzhu.data.repository.finance.TransactionRepository as FinanceTransactionRepository
+import com.hefengbao.yuzhu.data.repository.finance.TransactionRepositoryImpl as FinanceTransactionRepositoryImpl
 import com.hefengbao.yuzhu.data.repository.post.ArticleRepository
 import com.hefengbao.yuzhu.data.repository.post.ArticleRepositoryImpl
 import com.hefengbao.yuzhu.data.repository.post.TagRepository
@@ -57,4 +65,24 @@ interface DataModule {
     fun bindsUserDataRepository(
         repository: UserDataRepositoryImpl
     ): UserDataRepository
+
+    @Binds
+    fun bindsFinanceAccountRepository(
+        repository: FinanceAccountRepositoryImpl
+    ): FinanceAccountRepository
+
+    @Binds
+    fun bindsFinanceCategoryRepository(
+        repository: FinanceCategoryRepositoryImpl
+    ): FinanceCategoryRepository
+
+    @Binds
+    fun bindsFinanceGroupRepository(
+        repository: FinanceGroupRepositoryImpl
+    ): FinanceGroupRepository
+
+    @Binds
+    fun bindsFinanceTransactionRepository(
+        repository: FinanceTransactionRepositoryImpl
+    ): FinanceTransactionRepository
 }

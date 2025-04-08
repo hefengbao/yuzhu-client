@@ -1,11 +1,15 @@
 package com.hefengbao.yuzhu.data.network
 
 import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.finance.Account
+import com.hefengbao.yuzhu.data.model.finance.Group
+import com.hefengbao.yuzhu.data.model.finance.Transaction
 import com.hefengbao.yuzhu.data.model.post.Category
 import com.hefengbao.yuzhu.data.model.post.Comment
 import com.hefengbao.yuzhu.data.model.post.Post
 import com.hefengbao.yuzhu.data.model.post.Tag
 import com.hefengbao.yuzhu.data.model.user.User
+import com.hefengbao.yuzhu.data.model.finance.Category as FinanceCategory
 import retrofit2.Response
 
 interface Network {
@@ -75,4 +79,22 @@ interface Network {
     suspend fun createCategory(authorization: String?, name: String): Category
     suspend fun getTags(authorization: String?): List<Tag>
     suspend fun createTag(authorization: String?, name: String): Tag
+
+    suspend fun getFinanceAccounts(authorization: String?): List<Account>
+    suspend fun getFinanceGroups(authorization: String?): List<Group>
+    suspend fun getFinanceCategories(authorization: String?): List<FinanceCategory>
+    suspend fun getFinanceTransactions(
+        authorization: String?,
+        startDate: String,
+        endDate: String,
+    ): List<Transaction>
+    suspend fun createFinanceTransaction(
+        authorization: String?,
+        accountId: Int,
+        type: String,
+        date: String,
+        categoryId: Int,
+        amount: Double,
+        notes: String?
+    ): Transaction
 }

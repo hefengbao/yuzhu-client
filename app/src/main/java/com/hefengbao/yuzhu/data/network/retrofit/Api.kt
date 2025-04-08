@@ -1,6 +1,9 @@
 package com.hefengbao.yuzhu.data.network.retrofit
 
 import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.finance.Account
+import com.hefengbao.yuzhu.data.model.finance.Group
+import com.hefengbao.yuzhu.data.model.finance.Transaction
 import com.hefengbao.yuzhu.data.model.user.User
 import retrofit2.Response
 import retrofit2.http.Field
@@ -14,6 +17,7 @@ import com.hefengbao.yuzhu.data.model.post.Category as PostCategory
 import com.hefengbao.yuzhu.data.model.post.Comment as PostComment
 import com.hefengbao.yuzhu.data.model.post.Post as NetworkPost
 import com.hefengbao.yuzhu.data.model.post.Tag as PostTag
+import com.hefengbao.yuzhu.data.model.finance.Category as FinanceCategory
 
 interface Api {
 
@@ -148,4 +152,38 @@ interface Api {
         @Header("Authorization") authorization: String?,
         @Field("name") name: String,
     ): PostTag
+
+    @GET("finance/accounts")
+    suspend fun getFinanceAccounts(
+        @Header("Authorization") authorization: String?,
+    ): List<Account>
+
+    @GET("finance/groups")
+    suspend fun getFinanceGroups(
+        @Header("Authorization") authorization: String?,
+    ): List<Group>
+
+    @GET("finance/categories")
+    suspend fun getFinanceCategories(
+        @Header("Authorization") authorization: String?,
+    ): List<FinanceCategory>
+
+    @GET("finance/transactions")
+    suspend fun getFinanceTransactions(
+        @Header("Authorization") authorization: String?,
+        @Query("start_date") startDate: String,
+        @Query("end_date") endDate: String
+    ): List<Transaction>
+
+    @FormUrlEncoded
+    @POST("finance/transaction")
+    suspend fun createFinanceTransaction(
+        @Header("Authorization") authorization: String?,
+        @Field("account_id") accountId: Int,
+        @Field("type") type: String,
+        @Field("date") date: String,
+        @Field("category_id") categoryId: Int,
+        @Field("amount") amount: Double,
+        @Field("notes") notes: String?
+    ): Transaction
 }

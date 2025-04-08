@@ -25,13 +25,13 @@ localProperties.load(FileInputStream(localPropertiesFile))
 
 android {
     namespace = "com.hefengbao.yuzhu"
-    compileSdk = 34
-    buildToolsVersion = "34.0.0"
+    compileSdk = 35
+    buildToolsVersion = "35.0.0"
 
     defaultConfig {
         applicationId = "com.hefengbao.yuzhu"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0.0"
 
@@ -142,10 +142,11 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.datastore.preferences)
-    implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.paging.compose)
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.dataStore.core)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.serialization.json)
     //implementation(libs.protobuf.kotlin.lite)
     implementation(libs.capturable)
     implementation(libs.retrofit)

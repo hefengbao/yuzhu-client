@@ -1,14 +1,18 @@
 package com.hefengbao.yuzhu.ui.screen.user.me
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AccountBalanceWallet
+import androidx.compose.material.icons.outlined.Money
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,6 +26,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hefengbao.yuzhu.data.model.user.UserData
@@ -30,10 +37,12 @@ import com.hefengbao.yuzhu.ui.component.Avatar
 @Composable
 fun MeRoute(
     viewModel: MeViewModel = hiltViewModel(),
+    onFinanceClick: () -> Unit,
     onSettingsClick: () -> Unit,
 ) {
     val userData by viewModel.userData.collectAsState(initial = null)
     MeScreen(
+        onFinanceClick = onFinanceClick,
         onSettingsClick = onSettingsClick,
         userData = userData,
     )
@@ -43,8 +52,9 @@ fun MeRoute(
 @Composable
 private fun MeScreen(
     modifier: Modifier = Modifier,
+    onFinanceClick: () -> Unit,
     onSettingsClick: () -> Unit,
-    userData: UserData?
+    userData: UserData?,
 ) {
     Scaffold(
         topBar = {
@@ -103,26 +113,40 @@ private fun MeScreen(
                     }
                 }
             }
-            item(
-                span = {
-                    GridItemSpan(2)
-                }
-            ) {
-                Text(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    text = """
-                        TODO:
-                        
-                        · 记账
-                        · 待办事项
-                        ...
-                        
-                        后续计划在这块区域添加一些实用的小功能。
-                    """.trimIndent()
+            item{
+                ItemCard(
+                    title = "财务",
+                    icon = Icons.Outlined.AccountBalanceWallet,
+                    onClick = onFinanceClick
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun ItemCard(
+    modifier: Modifier = Modifier,
+    title: String,
+    icon: ImageVector,
+    onClick: () -> Unit
+) {
+    Card(
+        onClick = onClick,
+        modifier = modifier.padding(16.dp),
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp).fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Image(
+                imageVector = icon,
+                contentDescription = title
+            )
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+            )
         }
     }
 }

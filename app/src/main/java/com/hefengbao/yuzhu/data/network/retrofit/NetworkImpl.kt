@@ -2,6 +2,10 @@ package com.hefengbao.yuzhu.data.network.retrofit
 
 import com.hefengbao.yuzhu.data.datastore.AppPreference
 import com.hefengbao.yuzhu.data.model.auth.AuthToken
+import com.hefengbao.yuzhu.data.model.finance.Account
+import com.hefengbao.yuzhu.data.model.finance.Category as FinanceCategory
+import com.hefengbao.yuzhu.data.model.finance.Group
+import com.hefengbao.yuzhu.data.model.finance.Transaction
 import com.hefengbao.yuzhu.data.model.post.Category
 import com.hefengbao.yuzhu.data.model.post.Comment
 import com.hefengbao.yuzhu.data.model.post.Post
@@ -148,4 +152,32 @@ class NetworkImpl @Inject constructor(
 
     override suspend fun createTag(authorization: String?, name: String): Tag =
         networkApi.createPostTag(authorization, name)
+
+    override suspend fun getFinanceAccounts(authorization: String?): List<Account> =
+        networkApi.getFinanceAccounts(authorization)
+
+    override suspend fun getFinanceGroups(authorization: String?): List<Group> =
+        networkApi.getFinanceGroups(authorization)
+
+    override suspend fun getFinanceCategories(authorization: String?): List<FinanceCategory> =
+        networkApi.getFinanceCategories(authorization)
+
+    override suspend fun getFinanceTransactions(
+        authorization: String?,
+        startDate: String,
+        endDate: String
+    ): List<Transaction> =
+        networkApi.getFinanceTransactions(authorization, startDate, endDate)
+
+    override suspend fun createFinanceTransaction(
+        authorization: String?,
+        accountId: Int,
+        type: String,
+        date: String,
+        categoryId: Int,
+        amount: Double,
+        notes: String?
+    ): Transaction = networkApi.createFinanceTransaction(
+        authorization, accountId, type, date, categoryId, amount, notes
+    )
 }
