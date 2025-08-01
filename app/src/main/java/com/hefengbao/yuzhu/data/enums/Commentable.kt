@@ -2,7 +2,7 @@ package com.hefengbao.yuzhu.data.enums
 
 enum class Commentable(val status: String) {
     Open("open"),
-    Close("close");
+    Close("closed");
 
     companion object {
         infix fun from(value: String): Commentable =
