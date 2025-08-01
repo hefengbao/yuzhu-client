@@ -58,6 +58,10 @@ bugly=
 <img src="screenshot/alipay.jpg" style="width: 45%" alt="支付宝赞赏码">
 </div>
 
+感谢各位的支持：
+
+![https://hefengbao.github.io/sponsors/](https://hefengbao.github.io/sponsors/)
+
 ## 公众号
 
 ![](screenshot/公众号.png)

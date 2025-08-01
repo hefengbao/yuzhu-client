@@ -71,12 +71,12 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
-            buildConfigField("String", "BUGLY", "\"${localProperties["bugly"] as String}\"")
+            buildConfigField("String", "BUGLY", "\"${localProperties["bugly_id"] as String}\"")
         }
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            buildConfigField("String", "BUGLY", "\"${localProperties["bugly"] as String}\"")
+            buildConfigField("String", "BUGLY", "\"${localProperties["bugly_id"] as String}\"")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
