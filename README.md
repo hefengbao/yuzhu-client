@@ -60,7 +60,7 @@ bugly=
 
 感谢各位的支持：
 
-![https://hefengbao.github.io/sponsors/](https://hefengbao.github.io/sponsors/)
+[https://hefengbao.github.io/sponsors/](https://hefengbao.github.io/sponsors/)
 
 ## 公众号
 
